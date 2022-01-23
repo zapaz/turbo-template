@@ -206,6 +206,7 @@ importers:
       '@types/findup-sync': ^4.0.2
       '@types/mocha': ^9.1.0
       '@types/node': ^17.0.10
+      '@types/rollup-plugin-node-builtins': ^2.1.2
       chai: ^4.3.4
       dotenv: ^14.2.0
       eslint: ^8.7.0
@@ -239,6 +240,7 @@ importers:
       sirv-cli: ^2.0.2
       standard: ^16.0.4
       svelte: ^3.46.2
+      svelte-check: ^2.3.0
       svelte-preprocess: ^4.10.2
       ts-node: ^10.4.0
       tsconfig-paths: ^3.12.0
@@ -275,6 +277,7 @@ importers:
       '@types/findup-sync': 4.0.2
       '@types/mocha': 9.1.0
       '@types/node': 17.0.10
+      '@types/rollup-plugin-node-builtins': 2.1.2
       chai: 4.3.4
       dotenv: 14.2.0
       eslint: 8.7.0
@@ -308,6 +311,7 @@ importers:
       sirv-cli: 2.0.2
       standard: 16.0.4
       svelte: 3.46.2
+      svelte-check: 2.3.0_postcss@8.4.5+svelte@3.46.2
       svelte-preprocess: 4.10.2_2a4c99a86e01910091fb98182b640d22
       ts-node: 10.4.0_9d6cd740eceb93d711351e2e9548d1bd
       tsconfig-paths: 3.12.0
@@ -2190,6 +2194,13 @@ packages:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
       '@types/node': 17.0.10
+    dev: true
+
+  /@types/rollup-plugin-node-builtins/2.1.2:
+    resolution: {integrity: sha512-R6dkiJk0JaRavDddmE4zddXOkFjCmSXv8RwqIgkX/1MvQ0SjDfo326+yAHy8HL++JWVNa48yB4EjPYyZeISzGQ==}
+    dependencies:
+      '@types/node': 17.0.10
+      rollup: 0.63.5
     dev: true
 
   /@types/sass/1.43.1:
@@ -11613,6 +11624,14 @@ packages:
       estree-walker: 0.6.1
     dev: true
 
+  /rollup/0.63.5:
+    resolution: {integrity: sha512-dFf8LpUNzIj3oE0vCvobX6rqOzHzLBoblyFp+3znPbjiSmSvOoK2kMKx+Fv9jYduG1rvcCfCveSgEaQHjWRF6g==}
+    hasBin: true
+    dependencies:
+      '@types/estree': 0.0.39
+      '@types/node': 17.0.10
+    dev: true
+
   /rollup/2.66.0:
     resolution: {integrity: sha512-L6mKOkdyP8HK5kKJXaiWG7KZDumPJjuo1P+cfyHOJPNNTK3Moe7zCH5+fy7v8pVmHXtlxorzaBjvkBMB23s98g==}
     engines: {node: '>=10.0.0'}
@@ -12647,6 +12666,35 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /svelte-check/2.3.0_postcss@8.4.5+svelte@3.46.2:
+    resolution: {integrity: sha512-SBKdJyUmxzPmJf/ZPqDSQOoa9JzOcgEpV7u3UaYcgVn7fA0veZ3FA5JgLU8KYtf84Gp6guBVcrC7XKLjJa5SXQ==}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.24.0
+    dependencies:
+      chokidar: 3.5.3
+      fast-glob: 3.2.11
+      import-fresh: 3.3.0
+      minimist: 1.2.5
+      picocolors: 1.0.0
+      sade: 1.8.1
+      source-map: 0.7.3
+      svelte: 3.46.2
+      svelte-preprocess: 4.10.2_2a4c99a86e01910091fb98182b640d22
+      typescript: 4.5.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - coffeescript
+      - less
+      - node-sass
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+    dev: true
 
   /svelte-preprocess/4.10.2_2a4c99a86e01910091fb98182b640d22:
     resolution: {integrity: sha512-aPpkCreSo8EL/y8kJSa1trhiX0oyAtTjlNNM7BNjRAsMJ8Yy2LtqHt0zyd4pQPXt+D4PzbO3qTjjio3kwOxDlA==}

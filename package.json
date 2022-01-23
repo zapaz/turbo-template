@@ -23,8 +23,7 @@
           "^build"
         ],
         "outputs": [
-          "dist/**",
-          ".next/**"
+          "docs/build/**"
         ]
       },
       "lint": {

@@ -12,35 +12,14 @@ import typescript from "@rollup/plugin-typescript";
 
 const production = !process.env.ROLLUP_WATCH;
 
-function serve() {
-  let server;
-
-  function toExit() {
-    if (server) server.kill(0);
-  }
-
+const toRollupConfig = () => {
   return {
-    writeBundle() {
-      if (server) return;
-      server = require("child_process").spawn("npm", ["run", "start", "--", "--dev"], {
-        stdio: ["ignore", "inherit", "inherit"],
-        shell: true
-      });
-
-      process.on("SIGTERM", toExit);
-      process.on("exit", toExit);
-    }
-  };
-}
-
-const toRollupConfig = (component) => {
-  return {
-    input: `./svelte/${component}.svelte`,
+    input: `./svelte/main.ts`,
     output: {
       sourcemap: !production,
       format: "iife",
       name: "app",
-      file: `docs/build/${component}.js`
+      file: `docs/build/App.js`
     },
     plugins: [
       svelte({
@@ -70,10 +49,6 @@ const toRollupConfig = (component) => {
       }),
       commonjs(),
 
-      // In dev mode, call `npm run start` once
-      // the bundle has been generated
-      !production && serve(),
-
       // Watch the `public` directory and refresh the
       // browser on changes when not in production
       !production && livereload("docs"),
@@ -86,14 +61,14 @@ const toRollupConfig = (component) => {
     ],
     watch: {
       clearScreen: false
-    },
-    onwarn: function (warning) {
-      if (warning.code === "THIS_IS_UNDEFINED" || warning.code === "CIRCULAR_DEPENDENCY") {
-        return;
-      }
-      console.warn(warning.message);
     }
+    // onwarn: function (warning) {
+    //   if (warning.code === "THIS_IS_UNDEFINED" || warning.code === "CIRCULAR_DEPENDENCY") {
+    //     return;
+    //   }
+    //   console.warn(warning.message);
+    // }
   };
 };
 
-export default [toRollupConfig("App")];
+export default [toRollupConfig()];

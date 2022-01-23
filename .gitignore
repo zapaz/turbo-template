@@ -8,11 +8,12 @@ node_modules
 # testing
 coverage
 
+# rollup
+build
+
 # next.js
 .next/
 out/
-build
-
 # misc
 .DS_Store
 *.pem

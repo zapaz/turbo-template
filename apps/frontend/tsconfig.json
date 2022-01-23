@@ -11,5 +11,5 @@
     // "strict": true
   },
   "include": ["./svelte", "./scripts", "./tests", "./deploy"],
-  "files": ["hardhat.config.ts"]
+  "files": ["rollup.config.ts"]
 }
