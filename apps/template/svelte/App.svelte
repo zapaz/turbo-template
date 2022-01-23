@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { Metamask } from "Metamask.svelte";
-  import { ethers } from "ethers";
-
   export let name: string;
 </script>
 

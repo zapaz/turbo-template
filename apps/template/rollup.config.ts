@@ -5,6 +5,7 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import json from "@rollup/plugin-json";
 import builtins from "rollup-plugin-node-builtins";
+import postcss from "rollup-plugin-postcss";
 
 import autoPreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
@@ -45,12 +46,15 @@ const toRollupConfig = (component) => {
       svelte({
         preprocess: autoPreprocess(),
         compilerOptions: {
-          customElement: true,
+          customElement: false,
           // enable run-time checks when not in production
           dev: !production
         }
         // we'll extract any component CSS out into
         // a separate file - better for performance
+      }),
+      postcss({
+        extract: true
       }),
       typescript({ sourceMap: !production }),
 
