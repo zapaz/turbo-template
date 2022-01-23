@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./",
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "importsNotUsedAsValues": "remove"
+    // "strict": true
+  },
+  "include": ["./svelte", "./scripts", "./tests", "./deploy"],
+  "files": ["hardhat.config.ts"]
+}

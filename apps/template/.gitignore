@@ -1,0 +1,9 @@
+node_modules
+.env
+.lh
+
+#Hardhat files
+cache
+artifacts
+types
+coverage
